@@ -1,5 +1,0 @@
-{
-	"dependencies": {
-		"@slack/bolt": "^4.4.0"
-	}
-}
