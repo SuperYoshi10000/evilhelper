@@ -27,6 +27,7 @@ app.event("message", async ({ client, message }) => {
     client.chat.postMessage({
         channel: message.channel,
         thread_ts: message.ts,
+        text: MESSAGE_START,
         blocks: [
             {
                 type: "section",
@@ -43,6 +44,7 @@ app.event("message", async ({ client, message }) => {
                             type: "plain_text",
                             text: DONE
                         },
+                        style: "primary",
                         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                     }
                 ]
