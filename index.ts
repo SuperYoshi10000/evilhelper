@@ -73,3 +73,8 @@ app.event("message", async ({ client, message }) => {
         timestamp: message.ts
     });
 });
+
+(async () => {
+    await app.start();
+    console.log("⚡️ Bolt app is running!");
+})();
