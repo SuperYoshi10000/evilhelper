@@ -9,6 +9,7 @@ const DONE = `i get it now`;
 const MESSAGE_END = `oh, oh! it looks like this post has been marked as resolved by <@$USER_ID>! if you have any more questions, please make a new post in <#${process.env.CHANNEL_ID}> and someone'll be happy to help you out! not me though, i'm just a silly racoon ^-^`;
 
 const app = new App({
+    token: process.env.SLACK_BOT_TOKEN!,
     clientId: process.env.SLACK_CLIENT_ID!,
     clientSecret: process.env.SLACK_CLIENT_SECRET!,
     signingSecret: process.env.SLACK_SIGNING_SECRET!,
