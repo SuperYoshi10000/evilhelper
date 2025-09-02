@@ -26,6 +26,7 @@ app.event("message", async ({ client, message }) => {
     console.debug("Added reaction");
     client.chat.postMessage({
         channel: message.channel,
+        thread_ts: message.ts,
         blocks: [
             {
                 type: "section",
@@ -54,6 +55,7 @@ app.event("message", async ({ client, message }) => {
     const complaint = COMPLAINTS[i];
     client.chat.postMessage({
         channel: message.channel,
+        thread_ts: message.ts,
         text: complaint,
         icon_url: process.env.IMAGE_URL,
         username: "Evil Workspace Admin"
@@ -64,6 +66,7 @@ app.event("message", async ({ client, message }) => {
     
     client.chat.postMessage({
         channel: message.channel,
+        thread_ts: message.ts,
         text: MESSAGE_END.replace("$USER_ID", user)
     });
     console.debug("Posted closing message");
