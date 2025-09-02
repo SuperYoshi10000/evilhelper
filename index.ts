@@ -11,6 +11,7 @@ const app = new App({
     clientId: process.env.SLACK_CLIENT_ID!,
     clientSecret: process.env.SLACK_CLIENT_SECRET!,
     signingSecret: process.env.SLACK_SIGNING_SECRET!,
+    port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
 });
 
 app.event("message", async ({ client, message }) => {
