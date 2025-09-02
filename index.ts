@@ -3,7 +3,7 @@ import { randomInt } from "crypto";
 import fs from "fs";
 import "dotenv/config";
 
-const MESSAGE_START = `someone should be along to help you soon but in the mean time i suggest you read the faq here to make sure your question hasn't already been answered. if it has been, please hit the button below to mark it as resolved :D`;
+const MESSAGE_START = `someone should be along to help you soon but in the mean time i suggest you read the faq [here](https://hackclub.slack.com/docs/T0266FRGM/F09DB595MAQ) to make sure your question hasn't already been answered. if it has been, please hit the button below to mark it as resolved :D`;
 const COMPLAINTS = fs.readFileSync("complaints.txt", "utf-8").split('\n');
 const DONE = `i get it now`;
 const MESSAGE_END = `oh, oh! it looks like this post has been marked as resolved by <@$USER_ID>! if you have any more questions, please make a new post in <#${process.env.CHANNEL_ID}> and someone'll be happy to help you out! not me though, i'm just a silly racoon ^-^`;
