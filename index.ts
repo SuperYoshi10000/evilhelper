@@ -27,6 +27,7 @@ app.event("message", async ({ client, message }) => {
     client.chat.postMessage({
         channel: message.channel,
         thread_ts: message.ts,
+        mrkdwn: true,
         text: MESSAGE_START,
         blocks: [
             {
