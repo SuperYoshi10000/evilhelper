@@ -59,6 +59,7 @@ app.event("message", async ({ client, message }) => {
     client.chat.postMessage({
         channel: message.channel,
         thread_ts: message.ts,
+        mrkdwn: true,
         text: complaint,
         icon_url: process.env.IMAGE_URL,
         username: "Evil Workspace Admin"
@@ -70,6 +71,7 @@ app.event("message", async ({ client, message }) => {
     client.chat.postMessage({
         channel: message.channel,
         thread_ts: message.ts,
+        mrkdwn: true,
         text: MESSAGE_END.replace("$USER_ID", user)
     });
     console.debug("Posted closing message");
