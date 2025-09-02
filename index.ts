@@ -1,6 +1,7 @@
 import { App } from "@slack/bolt";
 import { randomInt } from "crypto";
 import fs from "fs";
+import "dotenv/config";
 
 const MESSAGE_START = `someone should be along to help you soon but in the mean time i suggest you read the faq here to make sure your question hasn't already been answered. if it has been, please hit the button below to mark it as resolved :D`;
 const COMPLAINTS = fs.readFileSync("complaints.txt", "utf-8").split('\n');
