@@ -17,11 +17,13 @@ const app = new App({
 });
 
 app.event("message", async ({ client, message }) => {
+    console.log("Received message:", message);
     client.reactions.add({
         channel: message.channel,
         name: "thinking_face",
         timestamp: message.ts
     });
+    console.debug("Added reaction");
     client.chat.postMessage({
         channel: message.channel,
         blocks: [
@@ -46,6 +48,7 @@ app.event("message", async ({ client, message }) => {
             }
         ]
     });
+    console.debug("Posted initial message");
     await new Promise(resolve => setTimeout(resolve, 3000));
     const i = randomInt(COMPLAINTS.length);
     const complaint = COMPLAINTS[i];
@@ -55,6 +58,7 @@ app.event("message", async ({ client, message }) => {
         icon_url: process.env.IMAGE_URL,
         username: "Evil Workspace Admin"
     });
+    console.debug("Posted complaint:", complaint);
     await new Promise(resolve => setTimeout(resolve, 2000));
     const user = message.subtype === undefined ? message.user : "";
     
@@ -62,6 +66,7 @@ app.event("message", async ({ client, message }) => {
         channel: message.channel,
         text: MESSAGE_END.replace("$USER_ID", user)
     });
+    console.debug("Posted closing message");
     client.reactions.remove({
         channel: message.channel,
         name: "thinking_face",
@@ -72,6 +77,7 @@ app.event("message", async ({ client, message }) => {
         name: "white_check_mark",
         timestamp: message.ts
     });
+    console.debug("Updated reactions");
 });
 
 (async () => {
