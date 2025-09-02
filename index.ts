@@ -18,6 +18,7 @@ const app = new App({
 
 app.event("message", async ({ client, message }) => {
     console.log("Received message:", message);
+    if (message.subtype) return;
     client.reactions.add({
         channel: message.channel,
         name: "thinking_face",
@@ -66,7 +67,7 @@ app.event("message", async ({ client, message }) => {
     });
     console.debug("Posted complaint:", complaint);
     await new Promise(resolve => setTimeout(resolve, 2000));
-    const user = message.subtype === undefined ? message.user : "";
+    const user = message.user;
     
     client.chat.postMessage({
         channel: message.channel,
