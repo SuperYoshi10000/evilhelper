@@ -18,7 +18,7 @@ const app = new App({
 
 app.event("message", async ({ client, message }) => {
     console.log("Received message:", message);
-    if (message.subtype) return;
+    if (message.subtype || message.thread_ts) return;
     client.reactions.add({
         channel: message.channel,
         name: "thinking_face",
